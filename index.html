@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra las Parejas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Pantalla de Inicio -->
+    <div id="pantalla-inicio" class="pantalla-inicio">
+        <h1>¡Bienvenido al Juego de Encontrar Las Parejas!</h1>
+        <p>Creado por: @RaulDev</p>
+        <button id="comenzar-juego">Comenzar Juego</button>
+    </div>
+    
+    <!-- Contenedor del Juego (inicialmente oculto) -->
+    <div id="pantalla-juego" class="pantalla-juego" style="display: none;">
+        <h1>Juego Encontrar Las Parejas</h1>
+        <div id="tablero">
+            <!-- Las cartas se cargarán dinámicamente -->
+        </div>
+        <div id="contador">
+            <p>Intentos: <span id="intentos">0</span></p>
+            <p>Parejas Encontradas: <span id="parejasEncontradas">0</span></p>
+            <button id="resetButton" class="boton-reiniciar">Reiniciar Juego</button>
+        </div>
+    </div>
+
+    <script src="memoria.js"></script>
+</body>
+</html>
+
