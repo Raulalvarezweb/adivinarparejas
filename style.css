@@ -1,14 +1,15 @@
-/*pantalla inicio*/
+/* 📌 Pantalla de Inicio */
 .pantalla-inicio {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh; /* Ocupa toda la ventana */
-    background-color: #3498db; /* Azul claro */
+    background-color: #3498db;
     color: white;
-    margin: 0; /* Elimina márgenes que podrían desplazar el contenido */
-    overflow: hidden; /* Evita cualquier scroll en la pantalla de inicio */
+    margin: 0;
+    overflow: hidden; /* Evita el scroll */
+    text-align: center;
 }
 
 .pantalla-inicio h1 {
@@ -28,14 +29,16 @@
 }
 
 .pantalla-inicio button:hover {
-    background-color: #2980b9; /* Azul más oscuro */
+    background-color: #2980b9;
     color: white;
 }
+
+/* Ocultar juego al inicio */
 #pantalla-juego {
-    display: none; /* Oculta el juego inicialmente */
+    display: none;
 }
 
-/* General */
+/* 📌 Estilos Generales */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -44,60 +47,104 @@ body {
     padding: 0;
 }
 
-/* Encabezado principal */
+/* 🏆 Encabezado Principal */
 h1 {
     margin-top: 20px;
-    font-size: 2.5em;
+    font-size: 2.2em;
     color: #333;
 }
 
-/*estilos para el tablero*/
+/* 📌 Tablero de Juego */
 #tablero {
     display: grid;
-    grid-template-columns: repeat(10, 1fr); /* 4 columnas */
-    grid-gap: 10px; /* Espaciado entre cartas */
-    width: 100%;
-    margin: 20px auto; /* Centrado horizontal */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Se ajusta dinámicamente */
+    gap: 10px;
+    width: 90vw;
+    max-width: 600px;
+    margin: 20px auto;
     background-color: #ffffff;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/*estilos para la carta*/
+/* 🎴 Cartas */
 .carta {
-    width: 50%;
-    height: 160px;
-    display: grid;
+    width: 100%;
+    aspect-ratio: 1/1.4; /* Proporción de las cartas */
     background-image: url("assets/reverso.jpg");
     background-size: cover;
+    background-position: center;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s; /* Animación de rotación */
+    transition: transform 0.3s ease-in-out;
 }
-/*efectos raton por encima de la carta*/
+
+/* 🖱️ Efecto Hover */
 .carta:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/*estilo para voltear la carta*/
-
+/* 🔄 Animación de volteo */
 .volteada {
     transform: rotateY(180deg);
 }
 
-
+/* 🔘 Botón de Reinicio */
 .boton-reiniciar {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 24px;
+    font-size: 1.2em;
     background-color: #3498db;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+    transition: background-color 0.3s;
 }
 
 .boton-reiniciar:hover {
     background-color: #2980b9;
+}
+
+/* 📱 Estilos Responsivos */
+@media screen and (max-width: 768px) {
+    #tablero {
+        grid-template-columns: repeat(4, 1fr); /* 4 cartas por fila en tablets */
+    }
+
+    .pantalla-inicio h1 {
+        font-size: 2em;
+    }
+
+    .carta {
+        max-width: 80px;
+    }
+
+    .boton-reiniciar {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #tablero {
+        grid-template-columns: repeat(3, 1fr); /* 3 cartas por fila en móviles pequeños */
+        gap: 5px;
+    }
+
+    .pantalla-inicio h1 {
+        font-size: 1.8em;
+    }
+
+    .carta {
+        max-width: 70px;
+    }
+
+    .boton-reiniciar {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
 }
